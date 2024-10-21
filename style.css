@@ -1,0 +1,68 @@
+/* Top bar styling */
+.top-bar {
+    background-color: black;
+    color: white;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+/* Navbar Styling */
+.navbar-brand img {
+    width: 80px;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 600px;
+    color: white;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    z-index: 1;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* Featured Items */
+.featured-items .card {
+    transition: transform 0.3s;
+}
+
+.featured-items .card:hover {
+    transform: scale(1.05);
+}
+
+.card-body h5 {
+    font-weight: bold;
+    color: #FF5733;
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}

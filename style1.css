@@ -1,0 +1,40 @@
+/* Filter Menu */
+.filter-menu a {
+    margin: 0 15px;
+    font-weight: bold;
+    color: #f05b24;
+    text-decoration: none;
+}
+
+.filter-menu a.active {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+.filter-menu a:hover {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+/* Food Items */
+.food-item {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.food-item h5 {
+    color: #f05b24;
+    font-weight: bold;
+}
+
+.food-item p {
+    color: #777;
+}
+
+/* Hero Section (if needed for home page) */
+.hero-section {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}

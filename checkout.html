@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+    <div class="top-bar bg-dark text-white py-2 text-center">
+        <span>CHECKOUT</span>
+        <span class="float-right mr-3">Contact: +91-892-808-5056</span>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand" href="#"><img src="logo.jpg" alt="Logo" width="80"></a>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="food.html">Our Food</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="order.html">Order Now</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="checkout.html">Checkout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section py-5">
+        <div class="container">
+            <h2 class="text-center text-danger">Review Your Order & Checkout</h2>
+
+            <!-- Order Summary -->
+            <div class="order-summary mb-5 text-success">
+                <h4>Your Order:</h4>
+                <div id="order-items" class="order-items">
+                    <!-- Order items will be appended here via JavaScript -->
+                </div>
+                <div class="text-right">
+                    <h5><strong>Total: $<span id="total-cost">0.00</span></strong></h5>
+                </div>
+            </div>
+
+            <!-- Payment and Customer Details Form -->
+            <div class="form-section bg-primary text-dark">
+                <form action="order.php" method="POST">
+                    <input type="hidden" name="cartItems" id="cartItems">
+                    <h4>Enter Payment and Delivery Details:</h4>
+                    <div class="form-group">
+                        <label for="customer_name">Name</label>
+                        <input type="text" class="form-control" id="customer_name" name="customer_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_phone">Phone Number</label>
+                        <input type="text" class="form-control" id="customer_phone" name="customer_phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_address">Delivery Address</label>
+                        <input type="text" class="form-control" id="customer_address" name="customer_address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment_method">Payment Method</label>
+                        <select class="form-control" id="payment_method" name="payment_method" required>
+                            <option value="Credit Card">Credit Card</option>
+                            <option value="Debit Card">Debit Card</option>
+                            <option value="PayPal">PayPal</option>
+                            <option value="Cash on Delivery">Cash on Delivery</option>
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-success btn-lg" value="Place Order">
+                    </div>
+                </form>
+                
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+                        document.getElementById('cartItems').value = JSON.stringify(cartItems); // Add cart items to hidden input
+                    });
+                </script>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="text-center">© 2024 Online Food Ordering. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Include external JS for Bootstrap functionality -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for handling order summary -->
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the cart items from localStorage
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderItemsContainer = document.getElementById('order-items');
+            const totalCostElement = document.getElementById('total-cost');
+            let totalCost = 0;
+
+            // Function to render order items in checkout
+            function renderOrderItems() {
+    orderItemsContainer.innerHTML = '';
+    totalCost = 0; // Reset total cost
+
+
+    cartItems.forEach((item, index) => {
+        const orderItem = document.createElement('div');
+        orderItem.classList.add('order-item', 'row', 'mb-3');
+
+        orderItem.innerHTML = `
+            <div class="col-md-3">
+                <img src="${item.image}" class="img-fluid" alt="${item.title}">
+            </div>
+            <div class="col-md-6">
+                <h5>${item.title}</h5>
+                <p>${item.description}</p>
+                <p><strong>Quantity:</strong> ${item.quantity}</p> <!-- Display quantity -->
+                <p><strong>Unit Price:</strong> ${item.unitPrice}</p>
+                <p><strong>Total Cost:</strong> ${item.totalCost}</p> <!-- Display total cost per item -->
+                
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-danger btn-sm remove-item" data-index="${index}">X</button>
+                
+            </div>
+        `;
+
+        orderItemsContainer.appendChild(orderItem);
+
+        // Add the item's total cost to the overall total
+        totalCost += parseFloat(item.totalCost.replace('$', ''));
+    });
+
+    // Display the overall total cost
+    totalCostElement.textContent = totalCost.toFixed(2);
+}
+
+
+            // Function to remove an item from the cart
+            function removeItemFromCart(index) {
+                cartItems.splice(index, 1); // Remove the item from the array
+                localStorage.setItem('cart', JSON.stringify(cartItems)); // Update localStorage
+                renderOrderItems(); // Re-render the order items
+            }
+
+            // Event listener for remove buttons
+            orderItemsContainer.addEventListener('click', function(event) {
+                if (event.target.classList.contains('remove-item')) {
+                    const itemIndex = event.target.getAttribute('data-index');
+                    removeItemFromCart(itemIndex);
+                }
+            });
+
+            // Initial render of order items
+            renderOrderItems();
+        });
+    </script>
+
+</body>
+</html>

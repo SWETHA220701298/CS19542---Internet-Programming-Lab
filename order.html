@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Delicious Food Online</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+    <div class="top-bar bg-dark text-white py-2 text-center">
+        <span>ORDER YOUR FAVORITE FOOD ONLINE</span>
+        <span class="float-right mr-3">Contact: +91-892-808-5056</span>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand" href="#"><img src="logo.jpg" alt="Logo" width="80"></a>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="food.html">Our Food</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="order.html">Order Now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="checkout.html">Checkout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Food Menu Section -->
+    <section class="food-section py-5">
+        <div class="container">
+            <h2 class="text-center text-danger">Place Your Food Order</h2>
+
+            <!-- Food Menu -->
+            <form action="#" method="POST" class="mt-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="menu-item card mb-4 text-success">
+                            <img src="o1.jpg" class="card-img-top" alt="Herbs & Cheese Steak">
+                            <div class="card-body">
+                                <h5 class="card-title">Herbs & Cheese Steak - $12.99</h5>
+                                <p class="card-text">Savor the rich flavors of tender steak combined with fresh herbs and a delicious cheese blend.</p>
+                                <label for="steak">Quantity:</label>
+                                <input type="number" class="form-control" name="quantity[1]" id="steak" min="0" placeholder="0"><br>
+                                <a href="checkout.html" class="btn btn-warning">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="menu-item card mb-4 text-success">
+                            <img src="o2.jpg" class="card-img-top" alt="Spaghetti">
+                            <div class="card-body">
+                                <h5 class="card-title">Spaghetti - $9.99</h5>
+                                <p class="card-text">Delicious homemade spaghetti with a flavorful tomato sauce, topped with fresh herbs and Parmesan cheese.</p>
+                                <label for="spaghetti">Quantity:</label>
+                                <input type="number" class="form-control" name="quantity[2]" id="spaghetti" min="0" placeholder="0"><br>
+                                <a href="checkout.html" class="btn btn-warning">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="menu-item card mb-4 text-success">
+                            <img src="o3.jpg" class="card-img-top" alt="Crispy Sandwich">
+                            <div class="card-body">
+                                <h5 class="card-title">Crispy Sandwich - $8.99</h5>
+                                <p class="card-text">A mouth-watering crispy sandwich with your choice of fresh ingredients, perfect for any meal.</p>
+                                <label for="sandwich">Quantity:</label>
+                                <input type="number" class="form-control" name="quantity[3]" id="sandwich" min="0" placeholder="0"><br>
+                                <a href="checkout.html" class="btn btn-warning">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="menu-item card mb-4 text-success">
+                            <img src="o4.jpg" class="card-img-top" alt="Macarons">
+                            <div class="card-body">
+                                <h5 class="card-title">Macarons - $5.99</h5>
+                                <p class="card-text">Delicate and colorful French macarons with a soft, chewy center and a variety of delightful flavors.</p>
+                                <label for="macarons">Quantity:</label>
+                                <input type="number" class="form-control" name="quantity[4]" id="macarons" min="0" placeholder="0"><br>
+                                <a href="checkout.html" class="btn btn-warning">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="menu-item card mb-4 text-success">
+                            <img src="o5.jpg" class="card-img-top" alt="Fried Rice">
+                            <div class="card-body">
+                                <h5 class="card-title">Fried Rice - $7.99</h5>
+                                <p class="card-text">Classic fried rice with perfectly seasoned vegetables, eggs, and your choice of chicken or shrimp.</p>
+                                <label for="fried_rice">Quantity:</label>
+                                <input type="number" class="form-control" name="quantity[5]" id="fried_rice" min="0" placeholder="0"><br>
+                                <a href="checkout.html" class="btn btn-warning">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="menu-item card mb-4 text-success">
+                            <img src="o6.jpg" class="card-img-top" alt="Pizza">
+                            <div class="card-body">
+                                <h5 class="card-title">Pizza - $10.99</h5>
+                                <p class="card-text">A delicious pizza with a crispy crust, rich tomato sauce, and topped with melted cheese and fresh ingredients.</p>
+                                <label for="pizza">Quantity:</label>
+                                <input type="number" class="form-control" name="quantity[6]" id="pizza" min="0" placeholder="0"><br>
+                                <a href="checkout.html" class="btn btn-warning">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               </form> 
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Online Food Ordering. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.btn-warning');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const menuItem = this.closest('.menu-item');
+                    const foodImage = menuItem.querySelector('img').src;
+                    const foodTitle = menuItem.querySelector('.card-title').textContent;
+                    const foodDescription = menuItem.querySelector('.card-text').textContent;
+                    const foodCost = parseFloat(foodTitle.split('- $')[1].trim());  // Extract cost and convert to number
+                    const quantityInput = menuItem.querySelector('input[type="number"]');
+                    const quantity = parseInt(quantityInput.value, 10); // Get selected quantity
+        
+                    // Ensure that the quantity is at least 1
+                    if (quantity > 0) {
+                        const totalCost = (foodCost * quantity).toFixed(2); // Calculate total cost for selected quantity
+        
+                        const cartItem = {
+                            image: foodImage,
+                            title: foodTitle,
+                            description: foodDescription,
+                            unitPrice: foodCost.toFixed(2), // Store unit price separately
+                            quantity: quantity, // Store the quantity
+                            totalCost: (foodCost * quantity).toFixed(2)  // Store total cost
+                        };
+        
+                        // Get the existing cart from localStorage
+                        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                        cart.push(cartItem);
+                        
+                        // Store the updated cart in localStorage
+                        localStorage.setItem('cart', JSON.stringify(cart));
+        
+                        alert('Item added to cart!');
+                    } else {
+                        alert('Please select a quantity greater than 0.');
+                    }
+                });
+            });
+        });
+        </script>
+        
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOD ITEMS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <div class="top-bar bg-dark text-white py-2 text-center">
+        <span>ONLINE SHOPPING FOR FOOD</span>
+        <span class="float-right mr-3">Order Online +91-892-808-5056</span>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand" href="#"><img src="logo.jpg" alt="JKS Logo" width="80"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="food.html">Our Food</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="order.html">Order Now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="checkout.html">Checkout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Food Section -->
+    <section class="food-section py-5 bg-muted">
+        <div class="container">
+            <h2 class="text-center">Our Delicious Menu</h2>
+            <div class="filter-menu text-center my-4">
+                <a href="#" class="filter-item active" data-filter="all">All</a>
+                <a href="#" class="filter-item" data-filter="starter">Starters</a>
+                <a href="#" class="filter-item" data-filter="drinks">Drinks & Beverges</a>
+                <a href="#" class="filter-item" data-filter="dinner">Dinner</a>
+                <a href="#" class="filter-item" data-filter="breakfast-lunch">Breakfast & Lunch</a>
+            </div>
+            <div class="row">
+               
+                <div class="col-md-4 food-item" data-category="starter">
+                    <a href="#">
+                    <img src="o1.jpg" class="img-fluid" alt="Herbs & Cheese Stake">
+                    <h5 class="mt-2">Herbs & Cheese Stake</h5>
+                    <p>Savor the rich flavors of tender steak combined with fresh herbs and a delicious cheese blend.</p>
+                </a></div>
+                <div class="col-md-4 food-item" data-category="starter">
+                    <a href="#">
+                    <img src="o2.jpg" class="img-fluid" alt="Spaghetti">
+                    <h5 class="mt-2">Spaghetti</h5>
+                    <p>Delicious homemade spaghetti with a flavorful tomato sauce, topped with fresh herbs and Parmesan cheese.</p>
+                </a></div>
+                <div class="col-md-4 food-item" data-category="dinner">
+                    <a href="#">
+                    <img src="o3.jpg" class="img-fluid" alt="Crispy Sandwich">
+                    <h5 class="mt-2">Crispy Sandwich</h5>
+                    <p>A mouth-watering crispy sandwich with your choice of fresh ingredients, perfect for any meal.</p>
+                </a></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 food-item" data-category="drinks">
+                    <a href="#">
+                    <img src="o4.jpg" class="img-fluid" alt="Macarons">
+                    <h5 class="mt-2">Macarons</h5>
+                    <p>Delicate and colorful French macarons with a soft, chewy center and a variety of delightful flavors.</p>
+                </a></div>
+                <div class="col-md-4 food-item" data-category="breakfast-lunch">
+                    <a href="#">
+                    <img src="o5.jpg" class="img-fluid" alt="Fried Rice">
+                    <h5 class="mt-2">Fried Rice</h5>
+                    <p>Classic fried rice with perfectly seasoned vegetables, eggs, and your choice of chicken or shrimp.</p>
+                </a></div>
+                <div class="col-md-4 food-item" data-category="dinner">
+                    <a href="#">
+                    <img src="o6.jpg" class="img-fluid" alt="Pizza">
+                    <h5 class="mt-2">Pizza</h5>
+                    <p>A delicious pizza with a crispy crust, rich tomato sauce, and topped with melted cheese and fresh ingredients.</p>
+                </a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>© 2024 Online Food Ordering. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript to handle filter functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterItems = document.querySelectorAll('.filter-item');
+            const foodItems = document.querySelectorAll('.food-item');
+
+            filterItems.forEach(filter => {
+                filter.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    
+                    // Remove active class from all filters
+                    filterItems.forEach(f => f.classList.remove('active'));
+                    // Add active class to clicked filter
+                    this.classList.add('active');
+
+                    // Get the filter category
+                    const filterCategory = this.getAttribute('data-filter');
+
+                    // Show/Hide food items based on the selected category
+                    foodItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        if (filterCategory === 'all' || filterCategory === itemCategory) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
